@@ -2,6 +2,9 @@ const playerNameKey = 'cosmos-player-name';
 const playerName = localStorage.getItem(playerNameKey);
 const click = new Audio('audio/click.mp3');
 const mouse = new Audio('audio/mouse.mp3');
+const bgMusic = new Audio('audio/music.mp3');
+bgMusic.loop = true;
+bgMusic.volume = 0.3;
 
 if (!playerName) {
   window.location.href = 'index.html';
@@ -351,9 +354,9 @@ function initGame() {
     }, 1000);
     if (state.lockBoard || card.matched || cardElement.classList.contains('flipped')) return;
 
-    const sound = click.cloneNode();
-    sound.volume = 0.03;
-    sound.play();
+    const sound = click.cloneNode(true);
+    sound.volume = 0.02;
+    sound.play().catch(() => {});
 
 
     cardElement.classList.add('flipped');
@@ -442,6 +445,7 @@ function initGame() {
     updateCurrentSettingsLabels();
     setupModal.classList.add('hidden');
     resetGame();
+    bgMusic.play()
   }
 
   difficultyButtons.forEach(button => {
