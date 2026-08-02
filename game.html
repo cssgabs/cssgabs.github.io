@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <button id="openSetupButton" class="rank-button" type="button">
-                        <i class='bx bx-cog'></i> Alterar configurações
+                        <i class='bx bx-cog'></i> Novo Jogo
                     </button>
                 </div>
 
@@ -152,7 +152,12 @@
 
     <div id="scoreModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="scoreModalTitle">
         <div class="modal-card">
-            <h3 class="scoreModalTitle">Fim de jogo!</h3>
+            <div class="modal-header">
+                <h3 class="scoreModalTitle">Fim de jogo!</h3>
+                <button id="closeScoreModal" class="modal-close" type="button"
+                    aria-label="Fechar configurações">✕</button>
+            </div>
+
             <div id="won">
                 <p>Parabéns, <strong class="modalPlayerName"></strong>! Você marcou <strong class="modalScoreValue">0</strong>
                     pontos e sua pontuação já foi salva no ranking.</p>

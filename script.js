@@ -4,7 +4,8 @@ const click = new Audio('audio/click.mp3');
 const mouse = new Audio('audio/mouse.mp3');
 const bgMusic = new Audio('audio/music.mp3');
 bgMusic.loop = true;
-bgMusic.volume = 0.3;
+bgMusic.volume = 0.1;
+bgMusic.play()
 
 if (!playerName) {
   window.location.href = 'index.html';
@@ -28,6 +29,7 @@ function initGame() {
   const customTimeInput = document.getElementById('customTime');
   const setupModal = document.getElementById('setupModal');
   const closeSetupModalButton = document.getElementById('closeSetupModal');
+  const closeScoreModalButton = document.getElementById('closeScoreModal');
   const startMatchButton = document.getElementById('startMatchButton');
   const openSetupButton = document.getElementById('openSetupButton');
   const currentDifficultyLabel = document.getElementById('currentDifficultyLabel');
@@ -355,7 +357,7 @@ function initGame() {
     if (state.lockBoard || card.matched || cardElement.classList.contains('flipped')) return;
 
     const sound = click.cloneNode(true);
-    sound.volume = 0.02;
+    sound.volume = 0.05;
     sound.play().catch(() => {});
 
 
@@ -445,7 +447,6 @@ function initGame() {
     updateCurrentSettingsLabels();
     setupModal.classList.add('hidden');
     resetGame();
-    bgMusic.play()
   }
 
   difficultyButtons.forEach(button => {
@@ -453,7 +454,8 @@ function initGame() {
   });
 
   openSetupButton.addEventListener('click', openSetupModal);
-  closeSetupModalButton.addEventListener('click', closeSetupModal);
+  closeSetupModalButton.addEventListener('click', closeSetupModal)
+  closeScoreModalButton.addEventListener('click', closeScoreModal)
   startMatchButton.addEventListener('click', confirmSetup);
   viewRankingButton.addEventListener('click', openFullRankingModal);
   closeFullRankingModalButton.addEventListener('click', closeFullRankingModal);

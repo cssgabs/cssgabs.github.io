@@ -1000,6 +1000,7 @@ body::after {
     cursor: pointer;
     font-size: 14px;
     transition: all 0.2s ease;
+    margin-left: 20px;
 }
 
 .modal-close:hover {
